@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #999;
+}
+section{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.big{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    
+    border-radius: 20px;
+    box-shadow: 25px 25px 75px rgba(0,0,0,0.15),
+    10px 10px 70px rgba(0,0,0,0.10),
+    inset 5px 5px 10px rgba(0,0,0,0.10),
+    inset 5px 5px 20px rgba(255,255,255,0.3),
+    inset -5px -5px 15px rgba(0,0,0,0.5) ;
+}
+h1{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: black;
+    color: white;
+    top: 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 100;
+    font-family: 'Times New Roman', Times, serif;
+}
+.one{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 45px;
+    border: 1px solid gray;
+    top: 70px;
+    border-radius: 25px;
+}
+.one::before{
+    content: 'A';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+    left: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.one p{
+    position: absolute;
+    left: 50px;
+}
+.two{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 45px;
+    border: 1px solid gray;
+    top: 140px;
+    border-radius: 25px;
+}
+.two::before{
+    content: 'B';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+    left: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.two p{
+    position: absolute;
+    left: 50px;
+}
+.three{
+    position: absolute;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 45px;
+    border: 1px solid gray;
+    top: 210px;
+    border-radius: 25px;
+}
+.three::before{
+    content: 'C';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border: 2px solid black;
+    left: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.three p{
+    position: absolute;
+    left: 50px;
+}
+.correct ion-icon{
+    position: absolute;
+    left: 11px;
+    font-size: 1.4em;
+    color: limegreen;
+    display: none;
+}
+.incorrect ion-icon{
+    position: absolute;
+    left: 15px;
+    font-size: 1.1em;
+    color: red;
+    display: none;
+}
+.big.animation{
+    animation: animate 0.5s linear;
+}
+@keyframes animate{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.big.animation .one::before{
+    border: none;
+    content: '';
+    background-color: white;
+}
+.big.animation ion-icon{
+    display: block;
+}
+.big.animation .incorrect::before{
+    border: 2px solid red;
+    content: '';
+    background-color: white;
+}
+.big.animation1{
+    animation: animate1 0.5s linear;
+}
+@keyframes animate1{
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(15deg) scale(1.05);
+    }
+    50%{
+        transform: rotate(-20deg) scale(1.05);
+    }
+    75%{
+        transform: rotate(15deg) scale(1.05);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+.two.wrong1{
+    background-color: red;
+    color: white;
+}
+.two.wrong1::before{
+    background-color: white;
+    border: none;
+    content: '';
+}
+.big.animation1 .three::before{
+    content: '';
+    border: 2px solid red;
+}
+.big.animation1 .incorrect ion-icon{
+    display: block;
+}
+.three.wrong2{
+    background-color: red;
+    color: white;
+}
+.three.wrong2::before{
+    background-color: white;
+    content: '';
+    border: 2px solid white;
+}
+.big.animation1 .two::before{
+    content: '';
+    border: 2px solid red;
+}
+.big.animation1 .correct{
+    background-color: limegreen;
+    opacity: 0.4;
+    color: white;
+}
+.big.animation1 .correct::before{
+    content: '';
+    border: 2px solid white;
+}
+.big.animation1 .correct ion-icon{
+    display: block;
+    color: white;
+    left: 12px;
+}
+
+.left{
+    position: absolute;
+    display: none;
+    z-index: 100;
+    width: 10px;
+    height: 10px;
+    left: -10px;
+    background-color: var(--clr);
+    border-radius: 50%;
+    bottom: 100px;
+    animation: animate-left 2s linear;
+    animation-delay: calc(0.05s*var(--i));
+}
+@keyframes animate-left{
+    0%{
+        transform: translate(calc(0px*var(--i)),calc(0px*var(--i)));
+    }
+    25%{
+        transform: translate(calc(20px * var(--i)),calc(-40px*var(--i)));
+    }
+    50%{
+        transform: translate(calc(30px*var(--i)),calc(-20px*var(--i)));
+    }
+    75%{
+        transform: translate(calc(40px*var(--i)),calc(0px*var(--i)));
+    }
+    100%{
+        transform: translate(calc(50px*var(--i)),calc(20px*var(--i)));
+    }
+}
+
+.right{
+    position: absolute;
+    display: none;
+    z-index: 100;
+    width: 10px;
+    height: 10px;
+    right: -10px;
+    background-color: var(--clr);
+    border-radius: 50%;
+    bottom: 100px;
+    animation: animate-right 2s linear;
+    animation-delay: calc(0.05s*var(--i));
+}
+@keyframes animate-right{
+    0%{
+        transform: translate(calc(0px*var(--i)),calc(0px*var(--i)));
+    }
+    25%{
+        transform: translate(calc(-20px * var(--i)),calc(-40px*var(--i)));
+    }
+    50%{
+        transform: translate(calc(-30px*var(--i)),calc(-20px*var(--i)));
+    }
+    75%{
+        transform: translate(calc(-40px*var(--i)),calc(0px*var(--i)));
+    }
+    100%{
+        transform: translate(calc(-50px*var(--i)),calc(20px*var(--i)));
+    }
+}
